@@ -4,7 +4,7 @@ import Hotel from "../models/Hotel.js";
 const router = express.Router();
 
 // Get all hotels
-router.get("/", async (req, res) => {
+router.get("/hotel", async (req, res) => {
   try {
     const hotels = await Hotel.find({});
     res.json(hotels);
@@ -13,7 +13,7 @@ router.get("/", async (req, res) => {
   }
 });
 
-router.get("/:id", async (req, res) => {
+router.get("/hotel/:id", async (req, res) => {
     try {
       const hotel = await Hotel.findById(req.params.id);
       console.log(hotel);
@@ -30,7 +30,7 @@ router.get("/:id", async (req, res) => {
   });
 
 // Add a new hotel
-router.post("/", async (req, res) => {
+router.post("/new/hotel", async (req, res) => {
   const { name, price, address, region_subregion } = req.body;
   try {
     const hotel = new Hotel({ name, price, address, region_subregion });
@@ -42,7 +42,7 @@ router.post("/", async (req, res) => {
 });
 
 // Update a hotel
-router.put("/:id", async (req, res) => {
+router.put("/hotel/:id", async (req, res) => {
   try {
     const updatedHotel = await Hotel.findByIdAndUpdate(req.params.id, req.body, {
       new: true,
@@ -54,7 +54,7 @@ router.put("/:id", async (req, res) => {
 });
 
 // Delete a hotel
-router.delete("/:id", async (req, res) => {
+router.delete("/hotel/:id", async (req, res) => {
   try {
     console.log("Request Body:", req); // Log the body
     await Hotel.findByIdAndDelete(req.params.id);

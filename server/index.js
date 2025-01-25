@@ -22,10 +22,16 @@ const app = express();
 app.use(cors());
 app.use(bodyParser.json());
 
+app.get("/", (req, res) => {
+    res.json({
+      message: "Server is running " + PORT,
+    });
+  });
+
 // API Routes
-app.use("/api/hotels", hotelRoutes);
-app.use("/api/vehicles", vehicleRoutes);
-app.use("/api/regions", regionRoutes);
+app.use("/api", hotelRoutes);
+app.use("/api", vehicleRoutes);
+app.use("/api", regionRoutes);
 
 const PORT = 5000;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));

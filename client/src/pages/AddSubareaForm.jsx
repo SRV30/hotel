@@ -22,7 +22,7 @@ const AddSubareaForm = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('https://hotelmanagementss.onrender.com/api/regions', subareaData, {
+      const response = await axios.post('https://hotelmanagementss.onrender.com/api/region', subareaData, {
         headers: {
           'Content-Type': 'application/json',
         },

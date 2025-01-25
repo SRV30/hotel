@@ -4,7 +4,7 @@ import Vehicle from "../models/Vechicle.js";
 const router = express.Router();
 
 // GET: Fetch all vehicles
-router.get("/", async (req, res) => {
+router.get("/vehicle", async (req, res) => {
   try {
     const vehicles = await Vehicle.find().populate("region_id", "name");
     res.status(200).json(vehicles);
@@ -14,7 +14,7 @@ router.get("/", async (req, res) => {
 });
 
 // POST: Add a new vehicle
-router.post("/", async (req, res) => {
+router.post("/vehicle/new", async (req, res) => {
   const { type, price, regionSubregion} = req.body;
   console.log("Request Body:", req.body); // Log the body
   try {
@@ -27,7 +27,7 @@ router.post("/", async (req, res) => {
 });
 
 // PUT: Update a vehicle
-router.put("/:id", async (req, res) => {
+router.put("/vehicle/:id", async (req, res) => {
   const { id } = req.params;
 
   try {
@@ -44,7 +44,7 @@ router.put("/:id", async (req, res) => {
 });
 
 // DELETE: Delete a vehicle
-router.delete("/:id", async (req, res) => {
+router.delete("/vehicle/:id", async (req, res) => {
   const { id } = req.params;
 
   try {

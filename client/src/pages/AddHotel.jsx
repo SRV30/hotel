@@ -18,7 +18,7 @@ const AddHotelForm = () => {
   useEffect(() => {
     const fetchRegionsWithSubregions = async () => {
       try {
-        const response = await axios.get("https://hotelmanagementss.onrender.com/api/regions"); // Adjust the endpoint as per your API
+        const response = await axios.get("https://hotelmanagementss.onrender.com/api/region"); // Adjust the endpoint as per your API
         const combinedData = response.data.map((item) => ({
           id: item._id,
           displayName: `${item.region} - ${item.sub_region}`, // Combine region and subregion
@@ -45,7 +45,7 @@ const AddHotelForm = () => {
     e.preventDefault();
     try {
         console.log('Form submitted:', hotelData); // Log hotel data before making the request
-      const response = await axios.post("https://hotelmanagementss.onrender.com/api/hotels", hotelData, {
+      const response = await axios.post("https://hotelmanagementss.onrender.com/api/new/hotel", hotelData, {
         headers: {
           "Content-Type": "application/json",
         },

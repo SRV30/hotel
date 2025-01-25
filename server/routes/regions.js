@@ -4,7 +4,7 @@ import Region from "../models/Region.js";
 const router = express.Router();
 
 // GET: Fetch all regions
-router.get("/", async (req, res) => {
+router.get("/region", async (req, res) => {
   try {
     const regions = await Region.find();
     res.status(200).json(regions);
@@ -14,7 +14,7 @@ router.get("/", async (req, res) => {
 });
 
 // POST: Add a new region
-router.post("/", async (req, res) => {
+router.post("/region/new", async (req, res) => {
     const { region, sub_region } = req.body;
     console.log("Request Body:", req.body); // Log the body
     console.log(region, sub_region);
@@ -30,7 +30,7 @@ router.post("/", async (req, res) => {
   });
   
 // PUT: Update a region
-router.put("/:id", async (req, res) => {
+router.put("/region/:id", async (req, res) => {
   const { id } = req.params;
 
   try {
@@ -47,7 +47,7 @@ router.put("/:id", async (req, res) => {
 });
 
 // DELETE: Delete a region
-router.delete("/:id", async (req, res) => {
+router.delete("/region/:id", async (req, res) => {
   const { id } = req.params;
 
   try {
