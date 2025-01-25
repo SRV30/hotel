@@ -98,7 +98,7 @@ const AdminDashboard = () => {
     // Fetch the list of hotels from an API or database using axios
     const fetchHotels = async () => {
       try {
-        const response = await axios.get("https://hotelmanagementss.onrender.com/api/hotels");
+        const response = await axios.get("https://hotel-theta-three.vercel.app/api/hotel");
         setHotels(response.data);
         console.log(response.data);
       } catch (error) {
@@ -118,13 +118,13 @@ const AdminDashboard = () => {
   const handleDelete = async (hotelId) => {
     console.log("Deleting hotel with ID:", hotelId);
     try {
-      const response = await axios.delete(`https://hotelmanagementss.onrender.com/api/hotels/${hotelId}`);
+      const response = await axios.delete(`https://hotel-theta-three.vercel.app/api/hotel/${hotelId}`);
       if (response.status === 200) {
         // If the deletion was successful, update the state to reflect the changes
         setHotels(hotels.filter((hotel) => hotel._id !== hotelId));
 
         // Optionally, you can fetch the updated list of hotels
-        const updatedResponse = await axios.get("https://hotelmanagementss.onrender.com/api/hotels");
+        const updatedResponse = await axios.get("https://hotel-theta-three.vercel.app/api/hotel");
         setHotels(updatedResponse.data);
       } else {
         console.error("Failed to delete the hotel");
