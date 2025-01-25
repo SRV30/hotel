@@ -19,7 +19,7 @@ const AddVehicleForm = () => {
   useEffect(() => {
     const fetchRegions = async () => {
       try {
-        const response = await axios.get('https://hotelmanagementss.onrender.com/api/region');
+        const response = await axios.get('https://hotel-theta-three.vercel.app/api/region');
         const combinedData = response.data.map((item) => ({
           id: item._id,
           displayName: `${item.region} - ${item.sub_region}`, // Combine region and subregion
@@ -44,7 +44,7 @@ const AddVehicleForm = () => {
     e.preventDefault();
     console.log('Form submitted:', vehicleData); // Log vehicle data before making the request
     try {
-      const response = await axios.post('https://hotelmanagementss.onrender.com/api/vehicle/new', vehicleData, {
+      const response = await axios.post('https://hotel-theta-three.vercel.app/api/vehicle/new', vehicleData, {
         headers: {
           'Content-Type': 'application/json',
         },

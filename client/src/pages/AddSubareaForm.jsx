@@ -22,7 +22,7 @@ const AddSubareaForm = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('https://hotelmanagementss.onrender.com/api/region', subareaData, {
+      const response = await axios.post('https://hotel-theta-three.vercel.app/api/region', subareaData, {
         headers: {
           'Content-Type': 'application/json',
         },

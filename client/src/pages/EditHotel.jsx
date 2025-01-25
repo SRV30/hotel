@@ -99,7 +99,7 @@ const EditHotel = () => {
   useEffect(() => {
     const fetchHotel = async () => {
       try {
-        const response = await axios.get(`https://hotelmanagementss.onrender.com/api/hotel/${id}`);
+        const response = await axios.get(`https://hotel-theta-three.vercel.app/api/hotel/${id}`);
         setHotel(response.data);
         console.log(response.data);
         setLoading(false);
@@ -122,7 +122,7 @@ const EditHotel = () => {
 
   const handleSave = async () => {
     try {
-      await axios.put(`https://hotelmanagementss.onrender.com/api/hotel/${id}`, hotel, {
+      await axios.put(`https://hotel-theta-three.vercel.app/api/hotel/${id}`, hotel, {
         headers: {
           "Content-Type": "application/json",
         },
